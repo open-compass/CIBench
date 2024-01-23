@@ -5,7 +5,6 @@ import os.path as osp
 from datetime import datetime
 
 from mmengine.config import Config, DictAction
-
 from opencompass.partitioners import MultimodalNaivePartitioner
 from opencompass.registry import PARTITIONERS, RUNNERS, build_from_cfg
 from opencompass.runners import SlurmRunner

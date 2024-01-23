@@ -1,1 +1,1 @@
-from .cibench import CIBench, CIBenchEvaluator
+from .cibench import CIBench, CIBenchEvaluator  # noqa: F401

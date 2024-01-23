@@ -16,7 +16,6 @@ from jupyter_client import KernelManager
 from lagent.actions.base_action import BaseAction
 from lagent.schema import ActionReturn, ActionStatusCode
 from mmengine import dist
-
 from opencompass.utils import get_logger
 
 WORK_DIR = os.getenv('CODE_INTERPRETER_WORK_DIR',

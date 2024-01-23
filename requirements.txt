@@ -1,4 +1,3 @@
-opencompass
 antlr4-python3-runtime==4.11
 ipykernel
 ipython
@@ -9,6 +8,7 @@ jupytext
 lagent
 lightgbm==4.1.0
 networkx
+opencompass
 scikit-image
 sympy==1.12
 tensorflow==2.14.0

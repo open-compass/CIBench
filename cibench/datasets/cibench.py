@@ -9,13 +9,11 @@ from typing import List, Optional
 
 import numpy as np
 from datasets import Dataset
-
+from opencompass.datasets.base import BaseDataset
+from opencompass.datasets.gsm8k import gsm8k_postprocess
 from opencompass.lagent.actions.ipython_interpreter import extract_code
 from opencompass.openicl.icl_evaluator import BaseEvaluator
 from opencompass.registry import ICL_EVALUATORS, LOAD_DATASET
-
-from opencompass.datasets.base import BaseDataset
-from opencompass.datasets.gsm8k import gsm8k_postprocess
 
 
 def load_experiment(file: str) -> dict:
@@ -195,7 +193,7 @@ class CIBenchEvaluator(BaseEvaluator):
 
     Args:
         text_evaluator (optional, dict): The text evaluator for text result
-            comparison[]. Defaults to None, which use Rouge as defaults.
+            comparison[]. Defaults to None, which use rouge as defaults.
             Please notice that a extra key for `metric_name` should be set
             to get the exact metric result, such as `rouge1`.
         vis_evaluator (optional, dict): The vis evaluator for visualization

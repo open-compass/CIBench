@@ -1,4 +1,5 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
+
 
 def parse_requirements(fname='requirements.txt', with_version=True):
     """Parse the package dependencies listed in a requirements file but strips
@@ -77,6 +78,7 @@ def parse_requirements(fname='requirements.txt', with_version=True):
 
     packages = list(gen_packages_items())
     return packages
+
 
 setup(
     name='cibench',
