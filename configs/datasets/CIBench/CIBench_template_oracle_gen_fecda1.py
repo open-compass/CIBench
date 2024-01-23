@@ -19,14 +19,19 @@ cibench_infer_cfg = dict(
     inferencer=dict(type=AgentInferencer, infer_mode='every_with_gt'),
 )
 
-libs = ['matplotlib', 'opencv', 'pandas', 'pytorch', 'scipy', 'seaborn']
+# no tensorboard
+libs = ['/lightgbm', '/matplotlib', '/nltk', '/opencv', '/pandas', '/pytorch',
+    '/scipy', '/seaborn', '/sklearn', '/tensorflow',
+    '_chinese/lightgbm', '_chinese/matplotlib', '_chinese/nltk',
+    '_chinese/opencv', '_chinese/pandas', '_chinese/pytorch',
+    '_chinese/scipy', '_chinese/seaborn', '_chinese/sklearn', '_chinese/tensorflow']
 cibench_eval_cfg = dict(evaluator=dict(type=CIBenchEvaluator), pred_role="BOT")
 
 cibench_datasets = [
     dict(
-        abbr=f"cibench_generation_wgt/{lib}",
+        abbr=f"cibench_template_oracle{lib}",
         type=CIBench,
-        path=f"./data/cibench_dataset/cibench_generation/{lib}",
+        path=f"./data/cibench_dataset/cibench_template{lib}",
         internet_check=False,
         reader_cfg=cibench_reader_cfg,
         infer_cfg=cibench_infer_cfg,

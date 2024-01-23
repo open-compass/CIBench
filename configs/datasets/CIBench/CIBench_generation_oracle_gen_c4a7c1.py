@@ -20,11 +20,11 @@ cibench_infer_cfg = dict(
 )
 
 libs = ['matplotlib', 'opencv', 'pandas', 'pytorch', 'scipy', 'seaborn']
-cibench_eval_cfg = dict(evaluator=dict(type=CIBenchEvaluator, vis_evaluator=dict(type='GPT4V_INT')), pred_role="BOT")
+cibench_eval_cfg = dict(evaluator=dict(type=CIBenchEvaluator), pred_role="BOT")
 
 cibench_datasets = [
     dict(
-        abbr=f"cibench_generation_wgt/{lib}",
+        abbr=f"cibench_generation_oracle/{lib}",
         type=CIBench,
         path=f"./data/cibench_dataset/cibench_generation/{lib}",
         internet_check=False,

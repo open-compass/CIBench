@@ -25,11 +25,12 @@ libs = ['/lightgbm', '/matplotlib', '/nltk', '/opencv', '/pandas', '/pytorch',
     '_chinese/lightgbm', '_chinese/matplotlib', '_chinese/nltk',
     '_chinese/opencv', '_chinese/pandas', '_chinese/pytorch',
     '_chinese/scipy', '_chinese/seaborn', '_chinese/sklearn', '_chinese/tensorflow']
-cibench_eval_cfg = dict(evaluator=dict(type=CIBenchEvaluator), pred_role="BOT")
+cibench_eval_cfg = dict(evaluator=dict(type=CIBenchEvaluator, vis_evaluator=dict(type='GPT4V_INT')), pred_role="BOT")
+cibench_eval_cfg_cn = dict(evaluator=dict(type=CIBenchEvaluator, vis_evaluator=dict(type='GPT4V_INT'), lang='cn'), pred_role="BOT")
 
 cibench_datasets = [
     dict(
-        abbr=f"cibench_template_wgt{lib}",
+        abbr=f"cibench_template_oracle{lib}",
         type=CIBench,
         path=f"./data/cibench_dataset/cibench_template{lib}",
         internet_check=False,

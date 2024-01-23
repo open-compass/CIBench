@@ -13,8 +13,8 @@ from cibench.lagent.agents.react import CIReAct
 with read_base():
     from .datasets.CIBench.CIBench_template_gen_e6b12a import cibench_datasets as cibench_datasets_template
     from .datasets.CIBench.CIBench_generation_gen_8ab0dc import cibench_datasets as cibench_datasets_generation
-    from .datasets.CIBench.CIBench_template_wgt_gen_fecda1 import cibench_datasets as cibench_datasets_template_wgt
-    from .datasets.CIBench.CIBench_generation_wgt_gen_c4a7c1 import cibench_datasets as cibench_datasets_generation_wgt
+    from .datasets.CIBench.CIBench_template_oracle_gen_fecda1 import cibench_datasets as cibench_datasets_template_wgt
+    from .datasets.CIBench.CIBench_generation_oracle_gen_c4a7c1 import cibench_datasets as cibench_datasets_generation_wgt
     from .summarizers.cibench import summarizer
 
 datasets = []

@@ -66,12 +66,3 @@ repos:
     hooks:
       - id: docformatter
         args: ["--in-place", "--wrap-descriptions", "79"]
-  - repo: local
-    hooks:
-    -   id: update-dataset-suffix
-        name: dataset suffix updater
-        entry: ./tools/update_dataset_suffix.py
-        language: script
-        pass_filenames: true
-        require_serial: true
-        files: ^configs/datasets
