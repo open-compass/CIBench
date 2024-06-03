@@ -1,0 +1,625 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
+<!---
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+--->
+
+
+<style type="text/css">
+body {
+    font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 980px){
+    body {
+        width: 980px;
+    }
+}
+
+
+h1 {
+    font-weight:300;
+    line-height: 1.15em;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+a:link,a:visited {
+    color: #5364cc;
+    text-decoration: none;
+}
+a:hover {
+    color: #208799;
+}
+h1 {
+    text-align: center;
+}
+h2,h3 {
+    text-align: left;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 500;
+}
+h2 {
+    font-weight: 400;
+    margin: 16px 0px 4px 0px;
+}
+h3 {
+    font-weight: 600;
+    margin: 16px 0px 4px 0px;
+}
+
+.paper-title {
+    padding: 1px 0px 1px 0px;
+}
+section {
+    margin: 32px 0px 32px 0px;
+    text-align: justify;
+    clear: both;
+}
+.col-5 {
+     width: 20%;
+     float: left;
+}
+
+.move-down {
+    margin-top:1.2cm;
+}
+
+.col-4 {
+     width: 25%;
+     float: left;
+}
+.col-3 {
+     width: 33%;
+     float: left;
+}
+.col-2 {
+     width: 50%;
+     float: left;
+}
+.col-1 {
+     width: 100%;
+     float: left;
+}
+
+.author-row, .affil-row {
+    font-size: 17px;
+}
+
+.author-row-new { 
+    text-align: center; 
+}
+
+.author-row-new a {
+    display: inline-block;
+    font-size: 17px;
+    padding: 4px;
+}
+
+.author-row-new sup {
+    color: #313436;
+    font-size: 13   px;
+    padding: 4px;
+}
+
+.affiliations-new {
+    font-size: 16px;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.row {
+    margin: 16px 0px 16px 0px;
+}
+.authors {
+    font-size: 26px;
+}
+.affiliatons {
+    font-size: 18px;
+}
+.affil-row {
+    margin-top: 18px;
+}
+.teaser {
+    max-width: 100%;
+}
+.text-center {
+    text-align: center;  
+}
+.screenshot {
+    width: 256px;
+    border: 1px solid #ddd;
+}
+.screenshot-el {
+    margin-bottom: 16px;
+}
+hr {
+    height: 1px;
+    border: 0; 
+    border-top: 1px solid #ddd;
+    margin: 0;
+}
+.material-icons {
+    vertical-align: -6px;
+}
+p {
+    line-height: 1.25em;
+}
+.caption {
+    font-size: 16px;
+    color: #666;
+    margin-top: 4px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+
+video {
+    display: block;
+    margin: auto;
+}
+
+
+figure {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#bibtex pre {
+    font-size: 14px;
+    background-color: #eee;
+    padding: 16px;
+}
+.blue {
+    color: #2c82c9;
+    font-weight: bold;
+}
+.orange {
+    color: #d35400;
+    font-weight: bold;
+}
+.flex-row {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.flex-row-center {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    justify-content: center;
+    text-align: center;
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-item {
+  flex: 0 0 50%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.paper-btn-coming-soon {
+    position: relative; 
+    top: 0;
+    left: 0;
+}
+
+.coming-soon {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+}
+
+.center {
+  margin-left: 10.0%;
+  margin-right: 10.0%;
+}
+
+.paper-btn {
+  position: relative;
+  text-align: center;
+
+  display: inline-block;
+  margin: 8px;
+  padding: 8px 8px;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  
+  background-color: #E0F7FA;
+  color: #01579B !important;
+  font-size: 20px;
+  width: 200px;
+  font-weight: 600;
+}
+
+.paper-btn-tapestry {
+  position: relative;
+  text-align: center;
+
+  display: inline-block;
+  margin: 8px;
+  padding: 8px 8px;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  
+  background-color: #5364cc;
+  color: white !important;
+  font-size: 20px;
+  width: 200px;
+  font-weight: 600;
+}
+
+.paper-btn-parent {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0px;
+}
+
+.paper-btn:hover {
+    opacity: 0.85;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.venue {
+    font-size: 23px;
+}
+
+.topnav {
+    background-color: #EEEEEE;
+    overflow: hidden;
+}
+
+.topnav div {
+    max-width: 1070px;
+    margin: 0 auto;
+}
+
+.topnav a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+    padding: 16px 16px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.topnav img {
+    padding: 2px 0px;
+    width: 100%;
+    margin: 0.2em 0px 0.3em 0px;
+    vertical-align: middle;
+}
+
+pre {
+    font-size: 0.9em;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 3px;
+    background-color: rgb(235, 235, 235);
+    overflow-x: auto;
+}
+
+.download-thumb {
+    display: flex;
+}
+
+@media only screen and (max-width: 620px) {
+    .download-thumb {
+        display: none;
+    }
+}
+
+.paper-stuff {
+    width: 50%;
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 620px) {
+    .paper-stuff {
+        width: 100%;
+    }
+}
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  text-align: center;
+  float: left;
+  width: 16.666%;
+  padding: 5px;
+}
+.column3 {
+  text-align: center;
+  float: left;
+  width: 33.333%;
+  padding: 5px;
+}
+.column4 {
+  text-align: center;
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+.column5 {
+  text-align: center;
+  float: left;
+  width: 20%;
+  padding: 5px;
+}
+.column10 {
+  text-align: center;
+  float: left;
+  width: 10%;
+  padding: 5px;
+}
+.border-right {
+    border-right: 1px solid black;
+}
+.border-bottom{
+    border-bottom: 1px solid black;
+}
+
+
+.row-center {
+    margin: 16px 0px 16px 0px;
+    text-align: center;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+.figure-img {
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 500px) {
+  .column {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .column3 {
+    width: 100%;
+  }
+}
+
+</style>
+
+<script type="text/javascript"></script>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
+    <head>
+        <title> T-Eval </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:description" content="A comprehensive tool utilization benchmark"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+        <link rel="icon" href = "https://images.emojiterra.com/google/noto-emoji/unicode-15.1/color/512px/1f6e0.png">
+    </head>
+
+ <body>
+
+<div class="container">
+    <div class="paper-title">
+    <h1> 
+        CIBench: Evaluating Your LLMs with a Code Interpreter Plugin
+    </div>
+
+    <div id="authors">
+        <center>
+            <div class="author-row-new">
+                <a href="https://lovesnowbest.site/">Zehui Chen<sup>1,2*</sup></a>,
+                <a href="https://stiglidu.github.io/">Weihua Du<sup>3,2*</sup></a>,
+                <a href="https://zhangwenwei.cn/">Wenwei Zhang<sup>2*</sup></a>,
+                Kuikun Liu<sup>2</sup>, Jiangning Liu<sup>2</sup>, Miao Zheng<sup>2</sup>, Jingming Zhuo<sup>4,2</sup>,<br>
+                <a href="https://www.zhangsongyang.com/">Songyang Zhang<sup>2</sup></a>,
+                <a href="http://dahua.site/">Dahua Lin<sup>2</sup></a>,
+                <a href="https://chenkai.site/">Kai Chen<sup>2†</sup></a>
+                <a href="https://scholar.google.co.uk/citations?user=r6CvuOUAAAAJ&hl=en">Feng Zhao<sup>1†</sup></a>,
+            </div>
+        </center>
+        <center>
+        <div class="affiliations">
+            <span><sup>1</sup> University of Science and Technology of China</span>
+            <span><sup>2</sup> Shanghai AI Laboratory</span>
+            <span><sup>3</sup> Tsinghua University</span>
+            <span><sup>4</sup> Jilin University</span>
+        </div>
+
+        <!-- <div class="affil-row">
+            <div class="venue text-center"><b>NeurlIPS 2023 </b></div>
+        </div> -->
+
+        </center>
+
+        <div style="clear: both">
+            <div class="paper-btn-parent">
+            <a class="paper-btn" href="https://arxiv.org/abs/2312.14033">
+                <span class="material-icons"> description </span> 
+                 Paper
+            </a>
+            <!-- <a class="paper-btn" href="https://colab.research.google.com/drive/1jvlzWMc6oo-TH1fYMl6hsOYfrcQj2rEs?usp=sharing">
+                <span class="material-icons"> code </span> 
+                 Colab
+            </a>
+            <a class="paper-btn-tapestry" href="https://colab.research.google.com/github/yilundu/reduce_reuse_recycle/blob/main/notebooks/image_tapestry.ipynb">
+                <span class="material-icons"> code </span> 
+                 Tapestry Colab
+            </a> -->
+            <a class="paper-btn" href="https://github.com/open-compass/CIBench">
+                <span class="material-icons"> code </span>
+                Code
+            </a>
+            <!-- <a class="paper-btn" href="./leaderboard.html">
+                <span class="material-icons"> description </span> 
+                 Leaderboard (EN)
+            </a>
+            <a class="paper-btn" href="./leaderboard_zh.html">
+                <span class="material-icons"> description </span> 
+                 Leaderboard (ZH)
+            </a> -->
+            </div>
+        </div>
+    </div>
+    <section id="abstract"/>
+        <h2 style="text-align: center;">Abstract</h2>
+        <div class="flex-row" style="width: 75%; margin: 0 auto;">
+            <p>
+                While LLM-Based agents, which use external tools to solve complex problems, have made significant progress, benchmarking their ability is challenging, hindering a clear understanding of their limitations. In this paper, we propose an evaluation framework, named CIBench, to comprehensively assess LLMs' ability to utilize code interpreters for data science tasks. Our evaluation framework includes an evaluation dataset and two evaluation modes. The evaluation dataset is constructed using an LLM-human cooperative approach and simulates an authentic workflow by leveraging consecutive and interactive IPython sessions. The two evaluation modes assess LLMs' ability with and without human assistance. We conduct extensive experiments to analyze the ability of 19 LLMs on CIBench and provide valuable insights for future LLMs in data science tasks.            </p>
+        </div>
+    </section>
+    <section id="teaser-image">
+        <hr>
+        <center>
+            <!-- <figure>
+                <video class="centered" width="80%" autoplay loop muted playsinline class="video-background " >
+                    <source src="materials/teaser.m4v" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </figure> -->
+            <figure>
+                <a>
+                    <img width="95%" src="figure/teaser.jpg"> 
+                </a>
+                <p class="caption", style="text-align: center;">
+                    Overview of <b>CIBench</b>. CIBench is constructed in a LLM-Human cooperation manner. Template tasks are designed to process any other dataset with minimal modifcation. An example of tempalte task is shown in the later.
+                </p>
+            </figure>
+        </center>
+    </section>
+
+    <section id="evaluation protocol">
+        <hr>
+        <center>
+            <!-- <figure>
+                <video class="centered" width="80%" autoplay loop muted playsinline class="video-background " >
+                    <source src="materials/teaser.m4v" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </figure> -->
+            <figure>
+                <a>
+                    <img width="95%" src="figure/evaluation.jpg"> 
+                </a>
+                <p class="caption", style="text-align: center;">
+                    We propose two evaluation modes to benchmark LLM's ability w/ or w/o human assistance respectively. In end-to-end mode, the LLM addresses the user's question (bottom) within the context of its response, while in oracle mode, it answers the user's question (bottom) within the context of ground truth..
+                </p>
+            </figure>
+        </center>
+    </section>
+
+    <section id="Example">
+        <hr>
+        <center>
+            <!-- <figure>
+                <video class="centered" width="80%" autoplay loop muted playsinline class="video-background " >
+                    <source src="materials/teaser.m4v" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </figure> -->
+            <figure>
+                <a>
+                    <img width="95%" src="figure/example.jpg"> 
+                </a>
+                <p class="caption", style="text-align: center;">
+                    An example of <b>CIBench</b>. For any other dataset, we can repalce the dataset name and columns names. Therefore, template tasks can be used for different dataset file, thus greatly enlarge the CIBench. We will open-source the dataset later.
+                </p>
+            </figure>
+        </center>
+    </section>
+
+    
+    <!-- <section id="data generation pipeline"/>
+    <h2 style="text-align: center;">Data Generation Pipeline</h2>
+    <div class="flex-row">
+        <p>
+        The construction of <b>T-Eval</b> consists of three main phases: <b>tool collection</b>, <b>instruction generation</b>, and <b>golden solution annotation</b>. The overview of the construction is shown in Fig. 2. We follow two principles during the collection process:
+        </p>
+        <p class="inline-block mt-3">
+            <ol>
+              <li><b>High Availability and Usage Rate:</b> Considering that <b>T-Eval</b> is expected to cover most daily and practical use cases, we carefully select 1 ~ 2 tools for each specific domain, including Research, Travel, Entertainment, Web, Life, and Financials, resulting in 15 tools as our basic tool set.</li>
+              <li><b>Complete Documentations:</b> To reduce the failure of tool-calling cases caused by inadequate tool descriptions, which focus the evaluation attention on pure LLM abilities, we manually generate high-quality and detailed tool documentation for each tool.</li>
+            </ol>
+        </p>
+    </section> -->
+
+    <!-- <section id="result"/>
+    <hr>
+    <h2 style="text-align: center;">Result</h2>
+    <div class="flex-row-center">
+        <p>
+        You can find the newest leaderboard of our T-Eval benchmark <a href="./leaderboard.html">Here</a>.
+        </p>
+        <br>
+    </section>    -->
+
+    <section>
+        <hr>
+        This webpage template was recycled from <a href='https://nv-tlabs.github.io/LION/'>here</a>.
+        <!-- <center><p><a href='https://accessibility.mit.edu/'><b>Accessibility</b></a></p></center> -->
+    </section>
+
+    <section id="reference"/>
+    <hr>
+    <h2 style="">Citation</h2>
+    <pre>
+<code>
+@article{chen2023t,
+    title={CIBench: Evaluating Your LLMs with a Code Interpreter Plugin},
+    author={Chen, Zehui and Du, Weihua and Zhang, Wenwei and Liu, Kuikun and Liu, Jiangning and Zheng, Miao and Zhuo, Jingming and Zhang, Songyang and Lin, Dahua and Chen, Kai and others},
+    journal={arXiv preprint arXiv:2312.14033},
+    year={2023}
+}
+</code>
+    </pre>
+    </section>   
+
+</div>
+</body>
+</html>
