@@ -14,13 +14,11 @@ from opencompass.runners import SlurmSequentialRunner
 from opencompass.tasks import OpenICLInferTask
 
 with read_base():
-    from .internlm2 import models as internlm2_chat_20b_model
+    # You can import your models or any other model here
+    from ..models.hf_internlm.hf_internlm2_chat_20b import models as internlm2_chat_20b_model
     from .prompts import FEWSHOT_INSTRUCTION, FORCE_STOP_PROMPT_EN, IPYTHON_INTERPRETER_DESCRIPTION
 
     from ..summarizers.cibench import summarizer
-
-    # from ..clusters.slurm import infer_size as infer, eval
-    # from ..clusters.slurm import infer_size_split as infer, eval
 
     from ..datasets.CIBench.CIBench_template_gen_e6b12a import cibench_datasets as cibench_datasets_template
     from ..datasets.CIBench.CIBench_generation_gen_8ab0dc import cibench_datasets as cibench_datasets_generation

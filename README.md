@@ -14,10 +14,10 @@ This is an evaluation harness for the benchmark described in [CIBench: Evaluatin
 
 > While LLM-Based agents, which use external tools to solve complex problems, have made significant progress, benchmarking their ability is challenging, hindering a clear understanding of their limitations. In this paper, we propose an evaluation framework, named CIBench, to comprehensively assess LLMs' ability to utilize code interpreters for data science tasks. Our evaluation framework includes an evaluation dataset and two evaluation modes. The evaluation dataset is constructed using an LLM-human cooperative approach and simulates an authentic workflow by leveraging consecutive and interactive IPython sessions. The two evaluation modes assess LLMs' ability with and without human assistance. We conduct extensive experiments to analyze the ability of 19 LLMs on CIBench and provide valuable insights for future LLMs in data science tasks.
 
-<div>
+<!-- <div>
 <center>
 <img src="figs/proper.jpg" width="700" height="270">
-</div>
+</div> -->
 
 <div>
 <center>
@@ -101,6 +101,7 @@ python test.py --model_type api --model_path gpt-4-1106-preview --resume --out_n
 python run.py config/cibench_eval/eval_cibench_hf.py
 ```
 
+Note: You can install [lmdeploy](https://github.com/InternLM/lmdeploy) and add '-a lmdeploy' to acclerate the evaluation.
 ### 💫 Final Results
 Once you finish all tested samples, you can check the results in *outputs/cibench*. 
 
