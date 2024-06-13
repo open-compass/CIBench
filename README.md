@@ -113,7 +113,7 @@ More detailed and comprehensive benchmark results can refer to 🏆 [CIBench off
 
 <div>
 <center>
-<img src="figs/cibench.jpg">
+<img src="figs/cibench.png">
 </div>
 
 <!-- ### ✉️ Submit Your Results
