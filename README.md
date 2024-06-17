@@ -95,13 +95,13 @@ python test.py --model_type api --model_path gpt-4-1106-preview --resume --out_n
 ### 🤗 HuggingFace Models
 
 1. Download the huggingface model to your local path.
-2. Uncomment or comment the model in *opencompass/config/cibench_eval/model_collections/chat_models.py*.
-3. Run the model with the following scripts in the opencompass dir.
+<!-- 2. Uncomment or comment the model in *opencompass/config/cibench_eval/model_collections/chat_models.py*. -->
+2. Run the model with the following scripts in the opencompass dir.
 ```bash
 python run.py config/cibench_eval/eval_cibench_hf.py
 ```
 
-Note: You can install [lmdeploy](https://github.com/InternLM/lmdeploy) and add '-a lmdeploy' to acclerate the evaluation.
+<!-- Note: You can install [lmdeploy](https://github.com/InternLM/lmdeploy) and add '-a lmdeploy' to acclerate the evaluation. -->
 ### 💫 Final Results
 Once you finish all tested samples, you can check the results in *outputs/cibench*. 
 
