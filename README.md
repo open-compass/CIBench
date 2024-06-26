@@ -1,16 +1,18 @@
 # CIBench: Evaluating Your LLMs with a Code Interpreter Plugin
 
-[![arXiv](https://img.shields.io/badge/arXiv-2312.14033-b31b1b.svg)](https://arxiv.org/abs/2312.14033)
+<!-- [![arXiv](https://img.shields.io/badge/arXiv-2312.14033-b31b1b.svg)](https://arxiv.org/abs/2312.14033) -->
 [![license](https://img.shields.io/github/license/InternLM/opencompass.svg)](./LICENSE)
 
 ## ✨ Introduction  
 
-This is an evaluation harness for the benchmark described in [CIBench: Evaluating Your LLMs with a Code Interpreter Plugin](https://arxiv.org/abs/2312.14033). 
+This is an evaluation harness for the benchmark described in CIBench: Evaluating Your LLMs with a Code Interpreter Plugin.
 
-[[Paper](https://arxiv.org/abs/2312.14033)]
+<!-- [CIBench: Evaluating Your LLMs with a Code Interpreter Plugin](https://arxiv.org/abs/2312.14033).  -->
+
+<!-- [[Paper](https://arxiv.org/abs/2312.14033)]
 [[Project Page](https://open-compass.github.io/CIBench/)]
 [[LeaderBoard](https://open-compass.github.io/CIBench/leaderboard.html)]
-[[HuggingFace](https://huggingface.co/datasets/lovesnowbest/CIBench)]
+[[HuggingFace](https://huggingface.co/datasets/lovesnowbest/CIBench)] -->
 
 > While LLM-Based agents, which use external tools to solve complex problems, have made significant progress, benchmarking their ability is challenging, thereby hindering a clear understanding of their limitations. In this paper, we propose an interactive evaluation framework, named CIBench, to comprehensively assess LLMs' ability to utilize code interpreters for data science tasks. Our evaluation framework includes an evaluation dataset and two evaluation modes. The evaluation dataset is constructed using an LLM-human cooperative approach and simulates an authentic workflow by leveraging consecutive and interactive IPython sessions. The two evaluation modes assess LLMs' ability with and without human assistance. We conduct extensive experiments to analyze the ability of 24 LLMs on CIBench and provide valuable insights for future LLMs in code interpreter utilization.
 
@@ -100,7 +102,7 @@ python test.py --model_type api --model_path gpt-4-1106-preview --resume --out_n
 ```bash
 python run.py config/cibench_eval/eval_cibench_hf.py
 ```
-
+Note that the currently accelerator config (-a lmdeploy) doesnot support CodeAgent model. If you want to use lmdeploy to acclerate the evaluation, please refer to [lmdeploy_internlm2_chat_7b](https://github.com/open-compass/opencompass/blob/main/configs/models/hf_internlm/lmdeploy_internlm2_chat_7b.py) to write the model config by yourself.
 <!-- Note: You can install [lmdeploy](https://github.com/InternLM/lmdeploy) and add '-a lmdeploy' to acclerate the evaluation. -->
 ### 💫 Final Results
 Once you finish all tested samples, you can check the results in *outputs/cibench*. 
