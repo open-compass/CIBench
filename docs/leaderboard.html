@@ -172,10 +172,10 @@
     <h3 class="fw-light text-nowrap"><small id="warning">CIBench: Evaluating Your LLMs with a Code Interpreter Plugin<br></small></h3>
     <div style="clear: both">
       <div class="paper-btn-parent">
-      <a class="paper-btn" href="404">
+      <!-- <a class="paper-btn" href="404">
           <span class="material-icons"> description </span> 
            Paper
-      </a>
+      </a> -->
       <!-- <a class="paper-btn" href="https://colab.research.google.com/drive/1jvlzWMc6oo-TH1fYMl6hsOYfrcQj2rEs?usp=sharing">
           <span class="material-icons"> code </span> 
            Colab
@@ -207,7 +207,7 @@
           <table id="plused" class="table table-responsive table-striped table-bordered flex-shrink-1 border border-success border-3"></table>
         </div> -->
         <div class="container-fluid d-flex flex-column align-items-center">
-          <label for="origin" class="text-danger mb-3"> CIBench Scores</label>
+          <label for="origin" class="text-danger mb-3"> CIBench Scores. The prefix E and O denotes the End-to-end and Oracle mode respectively. Avg is the mean of Num, Text, and Vis in two modes.</label>
           <table id="origin" class="table table-responsive table-striped table-bordered flex-shrink-1 border border-danger border-3"></table>
         </div>
       </div>
@@ -351,14 +351,16 @@
       'O-Num',
       'O-Text',
       'O-Vis',
+      'Avg',
+      // 'Opensourced',
     ]
 
     var data = [];
 
     var currentUrl = 'scores.csv';
 
-    updateTable(originTable, currentUrl, 'avg');
-    // updateChart(currentUrl);
+    updateTable(originTable, currentUrl, 'Avg');
+    updateChart(currentUrl);
 
     function clearTable() {
       originTable.innerHTML = '';
@@ -402,7 +404,7 @@
           results.data.sort(function (a, b) {
             if (parseFloat(a['Size']) - parseFloat(b['Size']) < 0) return -1;
             if (parseFloat(a['Size']) - parseFloat(b['Size']) > 0) return 1;
-            return a['avg'] - b['avg']
+            return a['Avg'] - b['Avg']
           });
           displayChart(results.data, url);
         }
@@ -444,12 +446,13 @@
           modelCell.textContent = '';
         }
         rank++;
-        var modelLink = document.createElement('a');
-        modelLink.href = row['link'];
-        modelLink.textContent = row['Model'];
-        modelLink.classList.add('link-underline-primary');
-        modelLink.classList.add('text-nowrap');
-        modelCell.appendChild(modelLink);
+
+        // var modelLink = document.createElement('a');
+        // // modelLink.href = row['link'];
+        // modelLink.textContent = row['Model'];
+        // modelLink.classList.add('link-underline-primary');
+        // modelLink.classList.add('text-nowrap');
+        modelCell.textContent = row['Model'];
         modelCell.classList.add('d-flex');
         modelCell.classList.add('flex-nowrap');
         var opensourced = row['opensourced'];
@@ -459,30 +462,62 @@
           modelCell.appendChild(promptedSymbol);
         }
         dataRow.appendChild(modelCell);
+
+        var instructCell = document.createElement('td');
+        instructCell.classList.add('text-danger');
+        instructCell.textContent = row['E-Tool'];
+        dataRow.appendChild(instructCell);
+
+        var instructCell = document.createElement('td');
+        instructCell.classList.add('text-danger');
+        instructCell.textContent = row['E-Exe'];
+        dataRow.appendChild(instructCell);
+
+        var instructCell = document.createElement('td');
+        instructCell.classList.add('text-danger');
+        instructCell.textContent = row['E-Num'];
+        dataRow.appendChild(instructCell);
+
+        var instructCell = document.createElement('td');
+        instructCell.classList.add('text-danger');
+        instructCell.textContent = row['E-Text'];
+        dataRow.appendChild(instructCell);
+
+        var instructCell = document.createElement('td');
+        instructCell.classList.add('text-danger');
+        instructCell.textContent = row['E-Vis'];
+        dataRow.appendChild(instructCell);
+
         var instructCell = document.createElement('td');
         instructCell.classList.add('text-danger');
         instructCell.textContent = row['O-Tool'];
         dataRow.appendChild(instructCell);
+
         var instructCell = document.createElement('td');
         instructCell.classList.add('text-danger');
         instructCell.textContent = row['O-Exe'];
         dataRow.appendChild(instructCell);
+
         var instructCell = document.createElement('td');
         instructCell.classList.add('text-danger');
         instructCell.textContent = row['O-Num'];
         dataRow.appendChild(instructCell);
+
         var instructCell = document.createElement('td');
         instructCell.classList.add('text-danger');
         instructCell.textContent = row['O-Text'];
         dataRow.appendChild(instructCell);
+
         var instructCell = document.createElement('td');
         instructCell.classList.add('text-danger');
         instructCell.textContent = row['O-Vis'];
         dataRow.appendChild(instructCell);
+
         // var instructCell = document.createElement('td');
         // instructCell.classList.add('text-danger');
-        // instructCell.textContent = row['review'];
-        dataRow.appendChild(instructCell);
+        // instructCell.textContent = row['Avg'];
+        // dataRow.appendChild(instructCell);
+
         var passCell = document.createElement('td');
         passCell.classList.add('bold-blue');
         passCell.textContent += row[displayColumn];
@@ -507,8 +542,8 @@
 
       var maxScore = 0.0;
       data.forEach(function(row) {
-        if (parseFloat(row['avg']) > maxScore) {
-          maxScore = parseFloat(row['avg']);
+        if (parseFloat(row['Avg']) > maxScore) {
+          maxScore = parseFloat(row['Avg']);
         }
       });
       option.yAxis.max = maxScore + 1;
@@ -518,25 +553,25 @@
           if (row['opensourced'] == 'FALSE') {
             option.series[1].markLine.data.push({
               name: row['Model'],
-              yAxis: row['avg']
+              yAxis: row['Avg']
             });
           } else {
             option.series[0].markLine.data.push({
               name: row['Model'],
-              yAxis: row['avg']
+              yAxis: row['Avg']
             });
           }
         } else {
           if (row['opensourced'] == 'FALSE') {
             option.series[1].data.push({
               name: row['Model'],
-              value: [row['Size'], row['avg']],
+              value: [row['Size'], row['Avg']],
               size: row['Size'],
             });
           } else {
             option.series[0].data.push({
               name: row['Model'],
-              value: [row['Size'], row['avg']],
+              value: [row['Size'], row['Avg']],
               size: row['Size'],
             });
           }
@@ -552,13 +587,13 @@
         data.forEach(function(row) {
           if (row['Size'] == size) {
             if(row['opensourced'] == 'FALSE') {
-              if (parseFloat(row['avg']) > maxScoreIns) {
-                maxScoreIns = parseFloat(row['avg']);
+              if (parseFloat(row['Avg']) > maxScoreIns) {
+                maxScoreIns = parseFloat(row['Avg']);
                 maxModelIns = row['Model'];
               }
             } else {
-              if (parseFloat(row['avg']) > maxScore) {
-                maxScore = parseFloat(row['avg']);
+              if (parseFloat(row['Avg']) > maxScore) {
+                maxScore = parseFloat(row['Avg']);
                 maxModel = row['Model'];
               }
             }
@@ -566,7 +601,7 @@
         });
         var count = 0;
         option.series[0].data.forEach(function(row) {
-          if (row['size'] == size) {
+          if (row['Size'] == size) {
             count += 1;
             if (count % 2 == 1){
               offset = [40, 0];
