@@ -9,10 +9,10 @@ This is an evaluation harness for the benchmark described in CIBench: Evaluating
 
 <!-- [CIBench: Evaluating Your LLMs with a Code Interpreter Plugin](https://arxiv.org/abs/2312.14033).  -->
 
-<!-- [[Paper](https://arxiv.org/abs/2312.14033)]
+<!-- [[Paper](https://arxiv.org/abs/2312.14033)] -->
 [[Project Page](https://open-compass.github.io/CIBench/)]
 [[LeaderBoard](https://open-compass.github.io/CIBench/leaderboard.html)]
-[[HuggingFace](https://huggingface.co/datasets/lovesnowbest/CIBench)] -->
+<!-- [[HuggingFace](https://huggingface.co/datasets/lovesnowbest/CIBench)] -->
 
 > While LLM-Based agents, which use external tools to solve complex problems, have made significant progress, benchmarking their ability is challenging, thereby hindering a clear understanding of their limitations. In this paper, we propose an interactive evaluation framework, named CIBench, to comprehensively assess LLMs' ability to utilize code interpreters for data science tasks. Our evaluation framework includes an evaluation dataset and two evaluation modes. The evaluation dataset is constructed using an LLM-human cooperative approach and simulates an authentic workflow by leveraging consecutive and interactive IPython sessions. The two evaluation modes assess LLMs' ability with and without human assistance. We conduct extensive experiments to analyze the ability of 24 LLMs on CIBench and provide valuable insights for future LLMs in code interpreter utilization.
 
