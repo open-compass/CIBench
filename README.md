@@ -9,7 +9,7 @@ This is an evaluation harness for the benchmark described in CIBench: Evaluating
 
 <!-- [CIBench: Evaluating Your LLMs with a Code Interpreter Plugin](https://arxiv.org/abs/2312.14033).  -->
 
-<!-- [[Paper](https://arxiv.org/abs/2312.14033)] -->
+[[Paper](https://www.arxiv.org/abs/2407.10499)]
 [[Project Page](https://open-compass.github.io/CIBench/)]
 [[LeaderBoard](https://open-compass.github.io/CIBench/leaderboard.html)]
 <!-- [[HuggingFace](https://huggingface.co/datasets/lovesnowbest/CIBench)] -->
